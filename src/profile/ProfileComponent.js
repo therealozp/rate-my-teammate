@@ -6,7 +6,7 @@ import Dot from '@mui/icons-material/FiberManualRecord';
 
 const sbjs = ['Computer Sciences', 'Physics'];
 
-const ProfileComponent = () => {
+const ProfileComponent = ({ name }) => {
 	return (
 		<Box
 			sx={{
@@ -60,7 +60,7 @@ const ProfileComponent = () => {
 							fontSize: 35,
 						}}
 					>
-						Yoimiya
+						{name}
 					</Typography>
 					<Dot sx={{ fontSize: 15, margin: '0 8px', color: '#AAD75F' }} />
 					<Typography
