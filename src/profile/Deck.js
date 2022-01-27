@@ -93,6 +93,7 @@ function Deck({ activeList, setCurrentActive, removeItemAtIndex }) {
 						style={{
 							transform: interpolate([rot, scale], trans),
 							touchAction: 'none',
+							transition: 'transform 200ms ease',
 						}}
 					>
 						<ProfileComponent name={activeList[i].name} />
