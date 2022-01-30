@@ -25,7 +25,7 @@ const EditableBlocks = ({
 	customInput,
 }) => {
 	return (
-		<Box sx={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
+		<Box sx={{ display: 'flex', alignItems: 'center', margin: '16px 0' }}>
 			<Typography sx={{ width: '120px' }}>{category}</Typography>
 			<Box
 				sx={{
@@ -33,7 +33,7 @@ const EditableBlocks = ({
 					display: currentActive ? 'none' : 'flex',
 				}}
 			>
-				<Typography sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>
+				<Typography sx={{ fontWeight: 500, fontSize: '1.1rem', width: '70px' }}>
 					{currentActionState}
 				</Typography>
 				<Button
@@ -114,10 +114,12 @@ const UserEdit = ({
 			>
 				Edit Profile
 			</Typography>
-			<Avatar
-				sx={{ height: '200px', width: '200px', margin: '16px' }}
-				src={currentImgSrc}
-			/>
+			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+				<Avatar
+					sx={{ height: '200px', width: '200px', margin: '16px' }}
+					src={currentImgSrc}
+				/>
+			</Box>
 			<Typography
 				sx={{
 					fontWeight: 'bold',
@@ -197,7 +199,7 @@ const UserEdit = ({
 							variant="outlined"
 							placeholder="Tags..."
 							style={{
-								width: '300px',
+								width: '330px',
 								height: '235px',
 								overflowY: 'auto',
 								margin: '8px 0 0 16px',

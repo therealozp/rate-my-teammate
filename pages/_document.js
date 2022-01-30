@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 					<link
-						href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Ubuntu&family=Work+Sans:wght@600&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Ubuntu&family=Work+Sans:wght@600&display=swap&family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500"
 						rel="stylesheet"
 					/>
 				</Head>

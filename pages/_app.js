@@ -8,8 +8,6 @@ import { theme } from '../src/themes';
 import '../styles/globals.css';
 export default function MyApp(props) {
 	const { Component, pageProps } = props;
-	const [pharmaData, setPharmaData] = useState(null);
-	const value = { pharmaData, setPharmaData };
 
 	React.useEffect(() => {
 		// Remove the server-side injected CSS.
@@ -22,7 +20,7 @@ export default function MyApp(props) {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>Cureator</title>
+				<title>Bibi</title>
 				<meta
 					name="viewport"
 					content="minimum-scale=1, initial-scale=1, width=device-width"

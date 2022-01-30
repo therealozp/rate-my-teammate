@@ -4,6 +4,7 @@ const theme = createTheme({
 	typography: {
 		// fontFamily: ["Josefin Sans", "cursive"].join(","),
 		fontFamily: [
+			'IBM Plex Sans Thai Looped',
 			'sans-serif',
 			'"Apple Color Emoji"',
 			'"Segoe UI Emoji"',
@@ -13,7 +14,8 @@ const theme = createTheme({
 	palette: {
 		primary: {
 			pink: '#FFCAD4',
-			main: '#E60028',
+			// main: '#E60028',
+			main: '#db4b1f',
 		},
 		secondary: {
 			main: '#000054',
