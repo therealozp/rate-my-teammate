@@ -15,17 +15,20 @@ const theme = createTheme({
 		primary: {
 			pink: '#FFCAD4',
 			// main: '#E60028',
-			main: '#db4b1f',
+			main: '#D74E09',
+			blood: '#6E0E0A',
 		},
 		secondary: {
-			main: '#000054',
-			light: '#7676A0',
+			main: '#124E78',
 		},
 		themeYellow: {
-			main: '#EDE476',
+			main: '#F2BB05',
 		},
 		themeGrey: {
 			main: '#EBEBEB',
+		},
+		themeBackground: {
+			main: '#F0F0C9',
 		},
 	},
 });

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import RatingCard from '../rating/RatingCard';
 import NavBar from './NavBar';
 import Sidebar from './Sidebar';
 
 const HomeLayout = ({ children }) => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	return (
-		<div>
+		<div style={{ width: '100%', height: '100%', backgroundColor: '#F0F0C9' }}>
 			<NavBar onClick={() => setDrawerOpen(true)} />
 			<Sidebar open={drawerOpen} handleClose={() => setDrawerOpen(false)} />
 			{/* <RatingCard
@@ -15,7 +14,7 @@ const HomeLayout = ({ children }) => {
 				name="Yoimiya"
 				imageURL="/yoimiya profile.jpeg"
 			/> */}
-			<main style={{ width: '100%', height: '100%' }}>{children}</main>
+			<main>{children}</main>
 		</div>
 	);
 };

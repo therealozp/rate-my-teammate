@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Typography, IconButton, Chip } from '@mui/material';
+import { Drawer, Typography, IconButton, Chip, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -101,6 +101,14 @@ const ProfileDrawer = ({ open, handleClose, name }) => {
 						'Literature',
 					]}
 				/>
+				<Button
+					variant="outlined"
+					sx={{
+						margin: '32px',
+					}}
+				>
+					Team up with me!
+				</Button>
 			</Drawer>
 		</>
 	);

@@ -76,7 +76,7 @@ const Sidebar = ({ open, handleClose }) => {
 			/>
 			<SidebarComp
 				label="Teams"
-				href="/teams"
+				href="/profile/ozymandio/teams"
 				customIcon={<GroupsIcon fontSize="large" />}
 			/>
 		</Drawer>

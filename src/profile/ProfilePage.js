@@ -3,6 +3,7 @@ import ProfileComponent from './ProfileComponent';
 import HomeLayout from '../layout/HomeLayout';
 import Deck from './Deck';
 import ProfileDrawer, { ProfileDrawerButton } from './ProfileDrawer';
+import { Box } from '@mui/system';
 
 const userlist = [
 	{
@@ -64,12 +65,7 @@ const ProfilePage = () => {
 	};
 	return (
 		<HomeLayout>
-			<ProfileDrawer
-				open={drawerOpen}
-				handleClose={() => setDrawerOpen(false)}
-				name={activeList[index].name}
-			/>
-			<div
+			<Box
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
@@ -82,8 +78,14 @@ const ProfilePage = () => {
 					removeItemAtIndex={(value) => removeItem(activeList, value)}
 					activeList={activeList}
 				/>
-			</div>
+			</Box>
+			<ProfileDrawer
+				open={drawerOpen}
+				handleClose={() => setDrawerOpen(false)}
+				name={activeList[index].name}
+			/>
 			<ProfileDrawerButton onClick={() => setDrawerOpen(!drawerOpen)} />
+			<Box sx={{ height: '13vh' }} />
 		</HomeLayout>
 	);
 };
