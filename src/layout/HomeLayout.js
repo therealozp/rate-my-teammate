@@ -5,16 +5,26 @@ import Sidebar from './Sidebar';
 const HomeLayout = ({ children }) => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	return (
-		<div style={{ width: '100%', height: '100%', backgroundColor: '#F0F0C9' }}>
+		<div>
 			<NavBar onClick={() => setDrawerOpen(true)} />
-			<Sidebar open={drawerOpen} handleClose={() => setDrawerOpen(false)} />
 			{/* <RatingCard
 				open={drawerOpen}
 				handleClose={() => setDrawerOpen(false)}
 				name="Yoimiya"
 				imageURL="/yoimiya profile.jpeg"
 			/> */}
-			<main>{children}</main>
+			<main
+				style={
+					{
+						// minWidth: '100vw',
+						// minHeight: '100vh',
+						// backgroundColor: '#F0F0C9',
+					}
+				}
+			>
+				{children}
+			</main>
+			<Sidebar open={drawerOpen} handleClose={() => setDrawerOpen(false)} />
 		</div>
 	);
 };

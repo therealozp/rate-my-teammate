@@ -2,10 +2,10 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+	/* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	overflow-x: hidden;
-	background-color: #f5f5e8;
+	overflow-x: hidden; */
+	background-color: #f0f0c9;
 }
 
 /* ::-webkit-scrollbar {
@@ -19,7 +19,3 @@ body {
 	border: 1px solid #73af8c;
 	border-radius: 5px;
 } */
-
-input[type='text']::placeholder {
-	padding-left: 10px;
-}
