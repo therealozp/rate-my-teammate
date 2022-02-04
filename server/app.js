@@ -19,6 +19,62 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
 	const server = express();
 
+	server.get('/', (req, res, next) => {
+		res.person = JSON.stringify({
+			name: 'Khang',
+			class: '12CA3',
+		});
+		return app.render(req, res, '/');
+	});
+
+	server.get('/invites', (req, res) => {
+		res.inviteList = [
+			{
+				sender: 'hanthang',
+				name: 'Dacct',
+				members: [
+					'hanthang',
+					'cuongchuck',
+					'ozymandio',
+					'Catou',
+					'newboy12',
+					'completeboy12',
+				],
+				sent: JSON.parse(JSON.stringify(new Date())),
+				teamPhotoURL: '/yoimiya profile.jpeg',
+			},
+			{
+				sender: 'hanthang',
+				name: 'Dacct',
+				members: [
+					'hanthang',
+					'cuongchuck',
+					'ozymandio',
+					'Catou',
+					'newboy12',
+					'completeboy12',
+				],
+				sent: JSON.parse(JSON.stringify(new Date())),
+				teamPhotoURL: '/yoimiya profile.jpeg',
+			},
+			{
+				sender: 'hanthang',
+				name: 'Dacct',
+				members: [
+					'hanthang',
+					'cuongchuck',
+					'ozymandio',
+					'Catou',
+					'newboy12',
+					'completeboy12',
+				],
+				sent: JSON.parse(JSON.stringify(new Date())),
+				teamPhotoURL: '/yoimiya profile.jpeg',
+			},
+		];
+		return app.render(req, res, '/invites');
+	});
+
 	server.all('*', (req, res) => {
 		return handle(req, res);
 	});
