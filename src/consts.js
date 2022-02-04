@@ -232,3 +232,8 @@ export const majors = [
 		name: 'Western Intellectual Tradition',
 	},
 ];
+
+export const dateJoinedString = (date) => {
+	//returns date for unix time, cuts off the last bit after year
+	return new Date(date).toDateString().substring(4);
+};

@@ -1,13 +1,13 @@
 import React from 'react';
+import InvitesPage from '../../src/invite/InvitesPage';
 import HomeLayout from '../../src/layout/HomeLayout';
-import TeamPage from '../../src/teams/Te3amPage';
 
-const teams = () => {
+const index = () => {
 	return (
 		<HomeLayout>
-			<TeamPage />
+			<InvitesPage />
 		</HomeLayout>
 	);
 };
 
-export default teams;
+export default index;
