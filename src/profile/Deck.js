@@ -70,7 +70,6 @@ function Deck({ activeList, setCurrentActive, removeItemAtIndex }) {
 		}
 	);
 	// async removal instead of instant
-
 	const setRemoveTimer = (index) => {
 		// console.log(index);
 		setTimeout(() => {
@@ -96,7 +95,7 @@ function Deck({ activeList, setCurrentActive, removeItemAtIndex }) {
 							transition: 'transform 200ms ease',
 						}}
 					>
-						<ProfileComponent name={activeList[i].name} />
+						<ProfileComponent user={activeList[i]} />
 					</animated.div>
 				</animated.div>
 			))}

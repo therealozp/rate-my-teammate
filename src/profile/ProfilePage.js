@@ -8,43 +8,123 @@ import { Box } from '@mui/system';
 const userlist = [
 	{
 		name: 'Yoimiya 1',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 2',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 3',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 4',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 5',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 6',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 7',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 	{
 		name: 'Yoimiya 8',
+		bio: 'A pyromaniac who loves studying explosions and fireworks!',
+		school: 'RMIT University',
+		DOB: '09/10/2004',
+		displaySubjects: ['Computer Sciences', 'Physics'],
+		drawerSubjects: [
+			'Computer Science',
+			'Physics',
+			'Discrete Maths',
+			'Literature',
+		],
+		email: 'yoimbestgirl@gmail.com',
 		imageURL: '/yoimiya profile.jpeg',
-		school: 'RMIT',
 	},
 ];
 
@@ -53,9 +133,10 @@ const ProfilePage = () => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	const [activeList, setActiveList] = useState(userlist);
 
-	const handleDrawerToggle = () => {
-		setDrawerOpen(!drawerOpen);
-	};
+	// const handleDrawerToggle = () => {
+	// 	setDrawerOpen(!drawerOpen);
+	// };
+
 	const removeItem = (arr, index) => {
 		if (activeList.length > 0) {
 			setActiveList(arr.filter((item) => item !== arr[index]));
@@ -82,7 +163,7 @@ const ProfilePage = () => {
 			<ProfileDrawer
 				open={drawerOpen}
 				handleClose={() => setDrawerOpen(false)}
-				name={activeList[index].name}
+				user={activeList[index]}
 			/>
 			<ProfileDrawerButton onClick={() => setDrawerOpen(!drawerOpen)} />
 			<Box sx={{ height: '13vh' }} />

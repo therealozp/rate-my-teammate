@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { Typography, Stack, Chip } from '@mui/material';
 import Dot from '@mui/icons-material/FiberManualRecord';
 
-const sbjs = ['Computer Sciences', 'Physics'];
-
-const ProfileComponent = ({ name }) => {
+const ProfileComponent = ({ user }) => {
 	return (
 		<Box
 			sx={{
@@ -60,7 +58,7 @@ const ProfileComponent = ({ name }) => {
 							fontSize: 35,
 						}}
 					>
-						{name}
+						{user?.name}
 					</Typography>
 					<Dot sx={{ fontSize: 15, margin: '0 8px', color: '#AAD75F' }} />
 					<Typography
@@ -69,12 +67,12 @@ const ProfileComponent = ({ name }) => {
 							fontFamily: 'Quicksand',
 						}}
 					>
-						RMIT University
+						{user?.school}
 					</Typography>
 				</Box>
 
 				<Stack direction="row" spacing={1} sx={{ marginBottom: '8px' }}>
-					{sbjs.map((d, i) => {
+					{user?.displaySubjects.map((d, i) => {
 						return (
 							<Chip
 								label={d}

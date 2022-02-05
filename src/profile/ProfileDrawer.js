@@ -51,7 +51,8 @@ const ProfileSection = ({ bio, email, school, subjects }) => {
 	);
 };
 
-const ProfileDrawer = ({ open, handleClose, name }) => {
+const ProfileDrawer = ({ open, handleClose, user, isProfile }) => {
+	console.log(isProfile);
 	return (
 		<>
 			<Drawer
@@ -87,28 +88,35 @@ const ProfileDrawer = ({ open, handleClose, name }) => {
 					<Typography
 						sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', fontSize: 30 }}
 					>
-						{name}
+						{user?.name}
 					</Typography>
 				</Box>
 				<ProfileSection
-					bio="A pyromaniac who loves studying explosions and fireworks!"
-					school="RMIT University"
-					email="yoimbestgirl@gmail.com"
-					subjects={[
-						'Computer Science',
-						'Physics',
-						'Discrete Maths',
-						'Literature',
-					]}
+					bio={user?.bio}
+					school={user?.school}
+					email={user?.email}
+					subjects={user?.drawerSubjects}
 				/>
-				<Button
-					variant="outlined"
-					sx={{
-						margin: '32px',
-					}}
-				>
-					Team up with me!
-				</Button>
+				{isProfile ? (
+					<Button
+						variant="outlined"
+						sx={{
+							margin: '32px',
+						}}
+						href="/profile/ozymandio/edit"
+					>
+						Edit
+					</Button>
+				) : (
+					<Button
+						variant="outlined"
+						sx={{
+							margin: '32px',
+						}}
+					>
+						Team up with me!
+					</Button>
+				)}
 			</Drawer>
 		</>
 	);

@@ -9,9 +9,10 @@ import {
 	ListItemIcon,
 } from '@mui/material';
 import Link from 'next/link';
-import HomeIcon from '@mui/icons-material/Home';
-import EditIcon from '@mui/icons-material/Edit';
 import GroupsIcon from '@mui/icons-material/Groups';
+import PersonIcon from '@mui/icons-material/Person';
+import ExploreIcon from '@mui/icons-material/Explore';
+import CelebrationIcon from '@mui/icons-material/Celebration';
 
 const SidebarComp = ({ label, href, customIcon }) => {
 	return (
@@ -65,19 +66,24 @@ const Sidebar = ({ open, handleClose }) => {
 			</Box>
 			<Divider />
 			<SidebarComp
-				label="Home"
+				label="Explore"
 				href="/"
-				customIcon={<HomeIcon fontSize="large" />}
+				customIcon={<ExploreIcon fontSize="large" />}
 			/>
 			<SidebarComp
-				label="Edit"
-				href="/profile/ozymandio/edit"
-				customIcon={<EditIcon fontSize="large" />}
+				label="My Profile"
+				href="/profile/ozymandio"
+				customIcon={<PersonIcon fontSize="large" />}
 			/>
 			<SidebarComp
 				label="Teams"
 				href="/teams"
 				customIcon={<GroupsIcon fontSize="large" />}
+			/>
+			<SidebarComp
+				label="Invites"
+				href="/invites"
+				customIcon={<CelebrationIcon fontSize="large" />}
 			/>
 		</Drawer>
 	);

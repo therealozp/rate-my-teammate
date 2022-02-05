@@ -15,6 +15,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { MobileDatePicker } from '@mui/lab';
 import { ChevronRight } from '@mui/icons-material';
+import ProfileDialog from './ProfileDialog';
 
 const EditableBlocks = ({
 	category,
@@ -97,151 +98,180 @@ const UserEdit = ({
 
 	// const [name, setName] = useState(currentName);
 	const [tagObjects, setTagObjects] = useState(currentTags);
-
+	const [disabled, setDisabled] = useState(false);
+	const [dialogOpen, setDialogOpen] = useState(false);
 	const onTagsChange = (event, value) => {
 		setTagObjects(value);
 	};
 
 	return (
-		<Box sx={{ padding: '16px' }}>
-			<Typography
-				sx={{
-					fontWeight: 'bold',
-					fontSize: 30,
-					fontFamily: 'Quicksand',
-					margin: '16px 0',
-				}}
-			>
-				Edit Profile
-			</Typography>
-			<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-				<Avatar
-					sx={{ height: '200px', width: '200px', margin: '16px' }}
-					src={currentImgSrc}
-				/>
-			</Box>
-			<Typography
-				sx={{
-					fontWeight: 'bold',
-					fontSize: 20,
-					fontFamily: 'Quicksand',
-					margin: '16px 0',
-				}}
-			>
-				Personal Information
-			</Typography>
-			<EditableBlocks
-				currentActive={nameEditing}
-				currentActionState={name}
-				setActive={(newValue) => setNameEditing(newValue)}
-				setActionState={(newValue) => setName(newValue)}
-				category="Name"
-			/>
-			<LocalizationProvider dateAdapter={AdapterDateFns}>
-				<EditableBlocks
-					customInput={
-						<MobileDatePicker
-							value={DOB}
-							onChange={(newDOB) => {
-								setDOB(newDOB);
+		<>
+			<Box sx={{ padding: '16px' }}>
+				<Typography
+					sx={{
+						fontWeight: 'bold',
+						fontSize: 30,
+						fontFamily: 'Quicksand',
+						margin: '16px 0',
+					}}
+				>
+					Edit Profile
+				</Typography>
+				<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+					<IconButton
+						// className={classes.avatarButton}
+						onClick={() => setDialogOpen(true)}
+					>
+						<Avatar
+							style={{
+								height: '200px',
+								width: '200px',
+								// border: '3pt solid lightgray',
 							}}
-							renderInput={(params) => (
-								<TextField
-									{...params}
+							src={currentImgSrc}
+							alt=""
+							// variant="square"
+						/>
+					</IconButton>
+				</Box>
+				<Typography
+					sx={{
+						fontWeight: 'bold',
+						fontSize: 20,
+						fontFamily: 'Quicksand',
+						margin: '16px 0',
+					}}
+				>
+					Personal Information
+				</Typography>
+				<EditableBlocks
+					currentActive={nameEditing}
+					currentActionState={name}
+					setActive={(newValue) => setNameEditing(newValue)}
+					setActionState={(newValue) => setName(newValue)}
+					category="Name"
+				/>
+				<LocalizationProvider dateAdapter={AdapterDateFns}>
+					<EditableBlocks
+						customInput={
+							<MobileDatePicker
+								value={DOB}
+								onChange={(newDOB) => {
+									setDOB(newDOB);
+								}}
+								renderInput={(params) => (
+									<TextField
+										{...params}
+										sx={{
+											marginLeft: 'auto',
+											marginRight: '20px',
+										}}
+									/>
+								)}
+								inputFormat="dd/MM/yyyy"
+							/>
+						}
+						currentActionState={DOB}
+						setActive={(newValue) => setDOBEditing(newValue)}
+						currentActive={DOBEditing}
+						category="Birthdate"
+					/>
+				</LocalizationProvider>
+				<Typography
+					sx={{
+						fontWeight: 'bold',
+						fontSize: 20,
+						fontFamily: 'Quicksand',
+						margin: '16px 0',
+					}}
+				>
+					School Information
+				</Typography>
+				<EditableBlocks
+					currentActive={schoolEditing}
+					currentActionState={school}
+					setActive={(newValue) => setSchoolEditing(newValue)}
+					setActionState={(newValue) => setSchool(newValue)}
+					category="School"
+				/>
+				<Box>
+					<Typography>Topics</Typography>
+					<Autocomplete //topics
+						multiple
+						blurOnSelect="mouse"
+						autoHighlight={true}
+						id="tags-outlined"
+						options={majors}
+						getOptionLabel={(option) => option.name}
+						value={tagObjects}
+						onChange={onTagsChange}
+						limitTags={5}
+						filterSelectedOptions
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								variant="outlined"
+								placeholder="Tags..."
+								style={{
+									width: '330px',
+									// height: '235px',
+									overflowY: 'auto',
+									margin: '8px 0 0 16px',
+								}}
+							/>
+						)}
+						renderTags={(value, getTagProps) =>
+							value.map((option, index) => (
+								<Chip
+									key={`chip${index}`}
+									variant="outlined"
 									sx={{
-										marginLeft: 'auto',
-										marginRight: '20px',
+										border: '2px solid #407fc2',
+										color: (theme) => theme.palette.secondary.main,
+										margin: '4px',
+									}}
+									label={option.name}
+									// onDelete={() => console.log('test')}
+									{...getTagProps({ index })}
+								/>
+							))
+						}
+						renderOption={(props, option) => (
+							<li {...props}>
+								<Box
+									component="span"
+									sx={{
+										width: 14,
+										height: 14,
+										mr: 1,
+										mt: '2px',
 									}}
 								/>
-							)}
-							inputFormat="dd/MM/yyyy"
-						/>
-					}
-					currentActionState={DOB}
-					setActive={(newValue) => setDOBEditing(newValue)}
-					currentActive={DOBEditing}
-					category="Birthdate"
-				/>
-			</LocalizationProvider>
-			<Typography
-				sx={{
-					fontWeight: 'bold',
-					fontSize: 20,
-					fontFamily: 'Quicksand',
-					margin: '16px 0',
-				}}
-			>
-				School Information
-			</Typography>
-			<EditableBlocks
-				currentActive={schoolEditing}
-				currentActionState={school}
-				setActive={(newValue) => setSchoolEditing(newValue)}
-				setActionState={(newValue) => setSchool(newValue)}
-				category="School"
-			/>
-			<Box>
-				<Typography>Topics</Typography>
-				<Autocomplete //topics
-					multiple
-					blurOnSelect="mouse"
-					autoHighlight={true}
-					id="tags-outlined"
-					options={majors}
-					getOptionLabel={(option) => option.name}
-					value={tagObjects}
-					onChange={onTagsChange}
-					limitTags={5}
-					filterSelectedOptions
-					renderInput={(params) => (
-						<TextField
-							{...params}
-							variant="outlined"
-							placeholder="Tags..."
-							style={{
-								width: '330px',
-								height: '235px',
-								overflowY: 'auto',
-								margin: '8px 0 0 16px',
-							}}
-						/>
-					)}
-					renderTags={(value, getTagProps) =>
-						value.map((option, index) => (
-							<Chip
-								key={`chip${index}`}
-								variant="outlined"
-								sx={{
-									border: '2px solid #407fc2',
-									color: (theme) => theme.palette.secondary.main,
-									margin: '4px',
-								}}
-								label={option.name}
-								// onDelete={() => console.log('test')}
-								{...getTagProps({ index })}
-							/>
-						))
-					}
-					renderOption={(props, option) => (
-						<li {...props}>
-							<Box
-								component="span"
-								sx={{
-									width: 14,
-									height: 14,
-									mr: 1,
-									mt: '2px',
-								}}
-							/>
-							<Box>
-								<Typography>{option.name}</Typography>
-								<br />
-							</Box>
-						</li>
-					)}
-				/>
+								<Box>
+									<Typography>{option.name}</Typography>
+									<br />
+								</Box>
+							</li>
+						)}
+					/>
+				</Box>
+				<Box
+					sx={{
+						width: '100%',
+						display: 'flex',
+						justifyContent: 'flex-end',
+						marginTop: '16px',
+					}}
+				>
+					<Button variant="outlined">Submit</Button>
+				</Box>
 			</Box>
-		</Box>
+			<ProfileDialog
+				open={dialogOpen}
+				handleClose={() => setDialogOpen(false)}
+				currentImgSrc={currentImgSrc}
+			/>
+		</>
 	);
 };
 
