@@ -105,3 +105,68 @@ app.prepare().then(() => {
 		console.log(`Listening on port ${port}`);
 	});
 });
+
+const mysql = require('mysql2');
+const db_connection = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  database: 'db',
+  password:'!B1c2d3e4cuong'
+});
+
+const userarr = [];
+const userchoice = []
+
+const sql = `SELECT name, birth, school, subject, username, email, rating FROM user`;
+db_connection.query(sql, (error, results, fields) => {
+  if (error) {
+    return console.error(error.message);
+  }
+  userarr.push(results);
+});
+
+app.get('/user/find', (req, res) => {
+  for (let i = 0; i < 8; i++) {
+    userchoice.push(userarr[i]);
+  }
+  res.send(userchoice)
+})
+
+app.get('/user/find/findagain', (req, res) => {
+  userchoice = [];
+  for (let i = 0; i < userarr.length - 8; i++) {
+    for (let j = 8; j < userarr.length; j++) {
+      userarr[i] = userarr[j];
+      for (let k = 0; k < 8; k++) {
+        userchoice.push(userarr[k]);
+      }
+    };
+  };
+  res.send(userchoice)
+})
+
+function inviteUser(req,res) {
+  db_connection.query("SELECT id FROM user",function(err,rows) {
+    if(!err) {
+      //ADD Group id to the user access the id with id
+      res.json(rows);
+    }           
+  });
+};
+  
+function acceptInvitation(req,res){
+  db_connection.query("select teamId from team",function(err,rows) {
+    if(!err) {
+      //ADD user id to the group access the id with req.body.userId
+      res.json(rows);
+    }           
+  });
+};
+
+app.get("/user/invite",function(req,res) {
+  inviteUser(req,res);
+});
+  
+app.get("/user/accept",function(req,res) {
+  acceptInvitation(req,res);
+});
